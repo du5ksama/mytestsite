@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def tasknote_list(request):
+    return render(request, 'myapp/tasknote_list.html', {})
