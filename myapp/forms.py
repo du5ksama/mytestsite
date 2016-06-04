@@ -6,4 +6,4 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ('subject', 'text_area', 'visibility_status', 'case_status',)
+        fields = ('subject', 'text_area', 'visibility_status', 'case_status','due_date',)

@@ -10,7 +10,7 @@ class Task(models.Model):
     author = models.ForeignKey('auth.User')
     
     case_status = models.IntegerField()
-    due_date = models.DateTimeField(blank=True, null=True)
+    due_date = models.DateField(blank=True, null=True)
 
     def save_task(self):
         self.due_date = timezone.now()

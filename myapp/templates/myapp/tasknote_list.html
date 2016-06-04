@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="page-header">
-        	<a href="{% url 'task_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        	<a href="{% url 'task_new' %}" class="top-menu">Add Task <span class="glyphicon glyphicon-plus"></span></a>
             <h1><a href="/">Test site</a></h1>
         </div>
 
@@ -20,9 +20,13 @@
 		                <div class="post">
 		                    <h1><a href="">{{ task.subject }}</a></h1>
 		                    <div class="date">
-		                        <p>published: {{ task.due_date }}</p>
+		                        <p>Due: {{ task.due_date }}</p>
 		                    </div>
 		                    <p>{{ task.text_area|linebreaks }}</p>
+		                    <p>Visibility Statis: {{ task.visibility_status }} | Case Status: {{ task.case_status }}</p>
+		                    <div class="date">
+		                        <p>Created: {{ task.created_date }} by {{ task.author }}</p>
+		                    </div>
 		                </div>
 		            {% endfor %}
 		        </div>
