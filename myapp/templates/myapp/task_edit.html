@@ -16,15 +16,11 @@
         <div class="content container">
 		    <div class="row">
 		        <div class="col-md-8">
-		            {% for task in tasks %}
-		                <div class="post">
-		                    <h1><a href="">{{ task.subject }}</a></h1>
-		                    <div class="date">
-		                        <p>published: {{ task.due_date }}</p>
-		                    </div>
-		                    <p>{{ task.text_area|linebreaks }}</p>
-		                </div>
-		            {% endfor %}
+		            <h1>New Task</h1>
+				    <form method="POST" class="post-form">{% csrf_token %}
+				        {{ form.as_p }}
+				        <button type="submit" class="save btn btn-default">Save</button>
+				    </form>
 		        </div>
 		    </div>
 		</div>
