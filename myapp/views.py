@@ -12,7 +12,12 @@ def task_new(request):
     if request.method == "POST":
         form = TaskForm(request.POST)
         if form.is_valid():
-            task = form.save(commit=False)
+            task = Task()
+            task.subject = form.cleaned_data['subject']
+            task.text_area = form.cleaned_data['text_area']
+            task.visibility_status = form.cleaned_data['visibility_status']
+            task.case_status = form.cleaned_data['case_status']
+            task.due_date = form.cleaned_data['due_date']
             task.author = request.user
             task.created_date = timezone.now()
             task.save()
