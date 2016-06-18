@@ -1,7 +1,7 @@
 from bootstrap3_datetime.widgets import DateTimePicker
 from django import forms
 from django.contrib.auth.models import User
-#from .choices import *
+from .choices import *
 
 from .models import Task
 

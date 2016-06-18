@@ -1,12 +1,14 @@
 VISIBILITY_CHOICES = (
-    (1, _("Public")),
-    (2, _("Team")),
-    (3, _("Private"))
+    (1, "Public"),
+    (2, "Team"),
+    (3, "Private")
 )
 CASE_CHOICES = (
-    (1, _("Open")),
-    (2, _("Assigned"))
-    (3, _("Processing")),
-    (4, _("Closed")),
-    (5, _("K"))
+    (1, "Open"),
+    (2, "Assigned"),
+    (3, "Processing"),
+    (4, "Closed"),
+    (5, "KIV")
 )
+
+testvar = "This is a test variable"

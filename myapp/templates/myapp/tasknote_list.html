@@ -15,12 +15,15 @@
 
         <div class="content container">
 		    <div class="row">
-		        <div class="col-md-8">
+		        <div class="col-md-6">
+		        	<h2>Tasks</h2>
+		        	Print Variable {{abcd}} End Print Variable
 		            {% for task in tasks %}
 		                <div class="post">
 		                    <h1><a href="">{{ task.subject }}</a></h1>
 		                    <div class="date">
 		                        <p>Due: {{ task.due_date }}</p>
+		                        <p>Assigned to: {{task.assigned_to}}</p>
 		                    </div>
 		                    <p>{{ task.text_area|linebreaks }}</p>
 		                    <p>Visibility Statis: {{ task.visibility_status }} | Case Status: {{ task.case_status }}</p>
@@ -29,6 +32,9 @@
 		                    </div>
 		                </div>
 		            {% endfor %}
+		        </div>
+		        <div class="col-md-6">
+		        	<h2>Notes</h2>
 		        </div>
 		    </div>
 		</div>
