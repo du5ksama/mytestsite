@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
-
+#from .choices import *
+from django.contrib.auth.models import User
 
 class Task(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
@@ -8,6 +9,7 @@ class Task(models.Model):
     text_area = models.TextField()
     visibility_status = models.IntegerField()
     author = models.ForeignKey('auth.User')
+    assigned_to = models.ForeignKey(User, models.SET_NULL, blank=True, null=True, related_name='+')
     
     case_status = models.IntegerField()
     due_date = models.DateField(blank=True, null=True)
