@@ -4,6 +4,7 @@ from .models import Task
 from .forms import TaskForm
 from .choices import *
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
 
 def tasknote_list(request):
     tasks = Task.objects.filter(due_date__lte=timezone.now()).order_by('due_date')
@@ -25,7 +26,8 @@ def task_new(request):
             task.case_status = form.cleaned_data['case_status']
             task.due_date = form.cleaned_data['due_date']
             task.assigned_to = form.cleaned_data['assigned_to']
-            task.author = request.user
+            task.author = User.objects.get(id=1)
+            #task.author = request.user
             task.created_date = timezone.now()
             task.save()
             return redirect('tasknote_list')
