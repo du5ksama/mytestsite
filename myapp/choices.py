@@ -10,3 +10,5 @@ CASE_CHOICES = (
     (4, "Closed"),
     (5, "KIV")
 )
+
+testvar1 = "(test value)"

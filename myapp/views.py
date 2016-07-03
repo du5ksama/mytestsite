@@ -10,7 +10,8 @@ def tasknote_list(request):
     return render(request, 'myapp/tasknote_list.html', {
                                                         'tasks': tasks,
                                                         'VISIBILITY_CHOICES': VISIBILITY_CHOICES,
-                                                        'CASE_CHOICES': CASE_CHOICES
+                                                        'CASE_CHOICES': CASE_CHOICES,
+                                                        'testvar1': testvar1
                                                         })
 
 def task_new(request):
