@@ -2,14 +2,16 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Task
 from .forms import TaskForm
-from .choices import testvar
+from .choices import *
 from django.shortcuts import redirect
-
 
 def tasknote_list(request):
     tasks = Task.objects.filter(due_date__lte=timezone.now()).order_by('due_date')
-    abcd = testvar
-    return render(request, 'myapp/tasknote_list.html', {'tasks': tasks})
+    return render(request, 'myapp/tasknote_list.html', {
+                                                        'tasks': tasks,
+                                                        'VISIBILITY_CHOICES': VISIBILITY_CHOICES,
+                                                        'CASE_CHOICES': CASE_CHOICES
+                                                        })
 
 def task_new(request):
     if request.method == "POST":
