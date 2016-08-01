@@ -6,18 +6,17 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="{% static 'css/tasknote.css' %}">
-		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header">        
+        	<a href="{% url 'note_new' %}" class="top-menu">Add Note <span class="glyphicon glyphicon-plus"></span></a>
         	<a href="{% url 'task_new' %}" class="top-menu">Add Task <span class="glyphicon glyphicon-plus"></span></a>
-            <h1><a href="/">Test site</a></h1>
+            <h1><a href="/">Task/Note List</a></h1>
         </div>
-
-        <div class="content container">
+        <div class="content container-fluid">
 		    <div class="row">
 		        <div class="col-md-6">
-		        	<h2>Tasks {{testvar1}}</h2>
+		        	<h2>Tasks</h2>
 		            {% for task in tasks %}
 		                <div class="post">
 		                    <h1><a href="">{{ task.subject }}</a></h1>
@@ -44,6 +43,23 @@
 		        </div>
 		        <div class="col-md-6">
 		        	<h2>Notes</h2>
+		        	{% for note in notes %}
+		                <div class="post">
+		                    <h1><a href="">{{ note.subject }}</a></h1>
+		                    <div class="date">
+		                        <p>Assigned to: {{note.assigned_to}}</p>
+		                    </div>
+		                    <p>{{ note.text_area|linebreaks }}</p>
+		                    {% with x=note.visibility_status|stringformat:"s" %}
+		                    {% with args=x|add:",1" %}
+		                    <p>Visibility Status: {{VISIBILITY_CHOICES|get_index:args}}</p>
+		                    {% endwith %}
+		                    {% endwith %}
+		                    <div class="date">
+		                        <p>Created: {{ note.created_date }} by {{ note.author }}</p>
+		                    </div>
+		                </div>
+		            {% endfor %}
 		        </div>
 		    </div>
 		</div>

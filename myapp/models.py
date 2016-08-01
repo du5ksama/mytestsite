@@ -25,8 +25,9 @@ class Note(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     subject = models.CharField(max_length=200)
     text_area = models.TextField()
-    visibility_status = models.IntegerField()
+    visibility_status = models.IntegerField(choices=VISIBILITY_CHOICES)
     author = models.ForeignKey('auth.User')
+    assigned_to = models.ForeignKey(User, models.SET_NULL, blank=True, null=True, related_name='+')
 
     def save_note(self):
         self.due_date = timezone.now()
