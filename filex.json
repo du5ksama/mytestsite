@@ -1,0 +1,7 @@
+[
+
+{"model": "myapp.note", "pk": 1, "fields": {"created_date": "2016-08-01T01:22:13Z", "subject": "First Note", "text_area": "dsfivuaehvuiyegrv", "visibility_status": 1, "author": 1, "assigned_to": 1}}, 
+
+{"model": "myapp.note", "pk": 2, "fields": {"created_date": "2016-08-04T04:54:20Z", "subject": "Second Note", "text_area": "weofjawpfuoih", "visibility_status": 1, "author": 1, "assigned_to": 1}}
+
+]
